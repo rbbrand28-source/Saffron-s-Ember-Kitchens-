@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saffron Ember Kitchens</title>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Framer Motion-like animations (vanilla JS) -->
+<style>
+  /* Cinematic hover & scroll animations */
+  .fade-in { opacity:0; transform: translateY(50px); transition: all 1s ease-in-out; }
+  .fade-in.visible { opacity:1; transform: translateY(0); }
+  body { background: #1a1a1a; color: #f5e0b7; font-family: 'Helvetica Neue', sans-serif; }
+  .glass { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.05); border-radius: 12px; }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Navbar -->
+<header class="fixed w-full z-50 bg-black/70 backdrop-blur-md p-4 flex justify-between items-center">
+  <div class="text-2xl font-bold text-yellow-500">Saffron Ember Kitchens</div>
+  <nav class="space-x-6">
+    <a href="#home" class="hover:text-yellow-400">Home</a>
+    <a href="#menu" class="hover:text-yellow-400">Menu</a>
+    <a href="#gallery" class="hover:text-yellow-400">Gallery</a>
+    <a href="#about" class="hover:text-yellow-400">About</a>
+    <a href="#contact" class="hover:text-yellow-400">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+  <video autoplay muted loop class="absolute w-full h-full object-cover -z-10">
+    <source src="https://cdn.pixabay.com/vimeo/575324315/futuristic-restaurant.mp4" type="video/mp4">
+  </video>
+  <div class="fade-in text-5xl md:text-7xl font-extrabold text-yellow-400 glass p-6">Welcome to the Future of Dining</div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="py-24 px-6 md:px-24">
+  <h2 class="text-4xl font-bold text-center mb-12 fade-in">Our Menu</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Dish Cards -->
+    <div class="fade-in glass p-6">
+      <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/pasta-2295210_1280.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-semibold">Signature Pasta</h3>
+      <p class="text-yellow-200">Creamy saffron-infused pasta with truffle oil.</p>
+      <p class="font-bold mt-2">$18</p>
+    </div>
+    <div class="fade-in glass p-6">
+      <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/salad-1238246_1280.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-semibold">Golden Salad</h3>
+      <p class="text-yellow-200">Fresh organic greens with edible gold leaf dressing.</p>
+      <p class="font-bold mt-2">$12</p>
+    </div>
+    <div class="fade-in glass p-6">
+      <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/dessert-2295212_1280.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-semibold">Saffron Crème Brûlée</h3>
+      <p class="text-yellow-200">Classic dessert with a futuristic golden twist.</p>
+      <p class="font-bold mt-2">$10</p>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-24 px-6 md:px-24 bg-black/30">
+  <h2 class="text-4xl font-bold text-center mb-12 fade-in">Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/12/54/restaurant-1868750_1280.jpg" class="fade-in w-full h-64 object-cover rounded-lg">
+    <img src="https://cdn.pixabay.com/photo/2017/06/06/10/39/restaurant-2378756_1280.jpg" class="fade-in w-full h-64 object-cover rounded-lg">
+    <img src="https://cdn.pixabay.com/photo/2015/03/26/09/41/restaurant-690093_1280.jpg" class="fade-in w-full h-64 object-cover rounded-lg">
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 px-6 md:px-24">
+  <h2 class="text-4xl font-bold text-center mb-12 fade-in">About Us</h2>
+  <div class="fade-in max-w-3xl mx-auto text-center text-yellow-200">
+    <p>At Saffron Ember Kitchens, we redefine dining for the next century. Our chefs use futuristic culinary techniques combined with traditional flavors to create an unforgettable experience.</p>
+  </div>
+</section>
+
+<!-- Contact / Reservation Section -->
+<section id="contact" class="py-24 px-6 md:px-24 bg-black/30">
+  <h2 class="text-4xl font-bold text-center mb-12 fade-in">Contact & Reservations</h2>
+  <form id="reservationForm" class="max-w-2xl mx-auto grid grid-cols-1 gap-6 fade-in glass p-8">
+    <input type="text" placeholder="Full Name" id="name" class="p-3 rounded-lg text-black" required>
+    <input type="email" placeholder="Email" id="email" class="p-3 rounded-lg text-black" required>
+    <input type="tel" placeholder="Phone" id="phone" class="p-3 rounded-lg text-black" required>
+    <input type="date" id="date" class="p-3 rounded-lg text-black" required>
+    <input type="time" id="time" class="p-3 rounded-lg text-black" required>
+    <select id="people" class="p-3 rounded-lg text-black" required>
+      <option value="">Number of People</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+    </select>
+    <textarea placeholder="Special Requests" id="requests" class="p-3 rounded-lg text-black"></textarea>
+    <button type="submit" class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-lg">Book Table</button>
+    <p id="formMessage" class="text-yellow-300 mt-2"></p>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black/70 backdrop-blur-md text-center py-6 mt-12">
+  <p>&copy; 2026 Saffron Ember Kitchens. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Scroll fade-in animation
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); appearOnScroll.unobserve(entry.target); }
+    });
+  }, appearOptions);
+  faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+  // Reservation Form Mock Functionality
+  document.getElementById('reservationForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    document.getElementById('formMessage').innerText = `Thank you ${name}! Your reservation for ${date} at ${time} is confirmed (mock).`;
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
